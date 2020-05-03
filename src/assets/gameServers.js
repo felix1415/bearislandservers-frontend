@@ -4,7 +4,7 @@ import Kitten2 from "./kitten400_2.jpg";
 export const tileData = [
   {
     img: Kitten1,
-    title: 'DayZ - server name',
+    title: 'DayZ -[] server name',
     subtitle: 'ipaddressher',
   },
   {

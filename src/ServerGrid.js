@@ -6,6 +6,8 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 import {tileData} from './assets/gameServers.js';
 
 
@@ -19,10 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     width: 1000,
-    height: 800,
+    height: 200,
   },
   icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
+    color: 'rgba(255, 255, 255, 0.4)',
+  },
+  link: {
+    '& > * + *': {
+      marginLeft: theme.spacing(2),
+    },
   },
 }));
 
@@ -43,8 +50,9 @@ const useStyles = makeStyles((theme) => ({
  *   },
  * ];
  */
-export default function TitlebarGridList() {
+export default function ServerGridList() {
   const classes = useStyles();
+  const preventDefault = (event) => event.preventDefault();
 
   //do some on click for the image and for the info icon - diff stuff on each
 

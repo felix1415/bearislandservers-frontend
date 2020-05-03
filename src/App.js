@@ -2,15 +2,19 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
+import Button from "@material-ui/core/Button";
+import Link from '@material-ui/core/Link';
 
-import MainBar from './AppBarTest';
-import TitlebarGridList from './ServerGrid';
+import MainBar from './NavBar';
 
-import Grid from '@material-ui/core/Grid';
-import Kitten1 from "./assets/kitten400_1.jpg";
-import Kitten2 from "./assets/kitten400_2.jpg";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link as LinkRouter
+} from "react-router-dom";
+
 
 function Copyright() {
   return (
@@ -28,25 +32,15 @@ function Copyright() {
 export default function App() {
   return (
     <Container fixed>
-      <MainBar />
-      <Box my={4}>
-        <Typography variant="h1" component="h1" gutterBottom>
-          Bear Island Servers
-        </Typography>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
 
-        <TitlebarGridList />
+      <Box my={2}>
 
-        </Grid>
+        <MainBar/>
 
-
+        
         <ProTip />
         <Copyright />
+        
       </Box>
     </Container>
   );

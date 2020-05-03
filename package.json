@@ -13,8 +13,11 @@
     "@material-ui/icons": "^4.9.1",
     "clsx": "latest",
     "material-ui-icons": "^1.0.0-beta.36",
-    "react": "latest",
+    "react": "^16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "latest",
+    "react-iframe": "^1.8.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "latest"
   },
   "browserslist": {
