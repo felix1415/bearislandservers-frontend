@@ -64,11 +64,12 @@ export default function MainBar() {
               </ButtonGroup>
 
               <Typography variant="h6" className={classes.title}>
-                Home
-              </Typography>
 
+              </Typography>
+{/*
               <Button color="inherit">Login</Button>
               <Button color="inherit">Sign Up</Button>
+            */}
             </Toolbar>
           </AppBar>
 

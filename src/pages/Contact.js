@@ -11,12 +11,12 @@ export default function Contact() {
 	        	Contact 
 	        </Typography>
 	        <Typography variant="body" gutterBottom>
-	        	All server issues and admin actionable problems can be directed to the admins using the bearisland email. Though we aim to reply to all emails, trivial, outdated or persitent chasing may be ignored.
+	        	All server issues and admin actionable problems can be directed to the admins using the bear island email. Though we aim to reply to all emails, trivial, outdated or persitent chasing may be ignored.
 	        	If an Admin is not responding in game, your best course of action is to send us an email:
 	        </Typography>
 	        <div/>
-	        <CopyToClipboard text="bearisland@bearisland.com">
-            	<Button>Copy Email</Button>
+	        <CopyToClipboard text="BearPatrol.BearIsland@Gmail.com">
+            	<Button>Copy email to clipboard</Button>
           </CopyToClipboard>
 	    </Box>
 	);

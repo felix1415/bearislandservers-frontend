@@ -38,7 +38,7 @@ export default function App() {
         <MainBar/>
 
         
-        <ProTip />
+
         <Copyright />
         
       </Box>
