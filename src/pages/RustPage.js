@@ -10,10 +10,9 @@ import Paper from '@material-ui/core/Paper';
 import ResponsiveImage from '../utils/ResponsiveImage';
 
 //font stuff
-import {RustFont} from '../utils/RustFont.js'
 import { makeStyles } from '@material-ui/core/styles';
-import { ThemeProvider, createMuiTheme} from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme} from '@material-ui/core/styles';
+import BespokeTempFont from '../utils/BespokeTempFont'
 
 //images
 import shotguns from '../assets/image_folder/shotguns.png';
@@ -24,6 +23,10 @@ import rockets2 from '../assets/image_folder/rockets2.png';
 import kitten1 from '../assets/kitten400_1.jpg';
 import kitten2 from '../assets/kitten400_2.jpg';
 
+import rustFontImport from '../assets/Rust.woff';
+import dayzFontImport from '../assets/28-Days-Later.woff';
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -31,25 +34,12 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
+    background: 'blue',
   },
   tab: {
   	marginLeft: "40px",
   },
 }));
-
-const rustFontTheme = createMuiTheme({
-  typography: {
-    fontFamily: 'rustBespokeFont, Arial',
-  },
-  overrides: {
-    MuiCssBaseline: {
-      '@global': {
-        '@font-face': [RustFont],
-      },
-    },
-  },
-});
-
 
 
 export default function Rust() {
@@ -60,12 +50,14 @@ export default function Rust() {
 		<Container fixed>
 		<Box my={4}>
 
-    		<ThemeProvider theme={rustFontTheme}>
-				<CssBaseline />
-		        <Typography variant="h2" component="h1" style={{textAlign: "center"}}>
-		          Bear Island Rust
-		        </Typography>
-		    </ThemeProvider>
+			<BespokeTempFont
+				fontImport={rustFontImport}
+				targetComponent={
+		            <Typography variant="h1" style={{textAlign: "center"}}>
+		              Bear Island Rust
+		            </Typography>
+              }> 
+			</BespokeTempFont>
 
 			<Typography variant="h6" className={classes.paper} gutterBottom>
 				[EU/UK] Bear Island | No BP Wipes | Low Upkeep | Max 4 per group | Monthly Map
