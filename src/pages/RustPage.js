@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    background: 'blue',
   },
   tab: {
   	marginLeft: "40px",
