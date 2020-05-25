@@ -3,11 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
 import {tileData} from './assets/gameServers.js';
 
 
@@ -52,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
  */
 export default function ServerGridList() {
   const classes = useStyles();
-  const preventDefault = (event) => event.preventDefault();
+  // const preventDefault = (event) => event.preventDefault();
 
   //do some on click for the image and for the info icon - diff stuff on each
 

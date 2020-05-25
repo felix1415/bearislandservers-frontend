@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { createMuiTheme} from '@material-ui/core/styles';
 
 import BespokeTempFont from '../utils/BespokeTempFont'
 import dayZFontImport from '../assets/28-Days-Later.woff'

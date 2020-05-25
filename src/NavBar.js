@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import DayZ from './pages/DayZPage';
 import Rust from './pages/RustPage';
 import Contact from './pages/Contact';
+import Login from './pages/Login';
 
 import {
   BrowserRouter as Router,
@@ -66,8 +67,9 @@ export default function MainBar() {
               <Typography variant="h6" className={classes.title}>
 
               </Typography>
-{/*
-              <Button color="inherit">Login</Button>
+
+              <Button component={RLink} to="/login">Login</Button>
+              {/*
               <Button color="inherit">Sign Up</Button>
             */}
             </Toolbar>
@@ -85,6 +87,9 @@ export default function MainBar() {
             </Route>
             <Route exact path="/contact">
               <Contact />
+            </Route>
+            <Route exact path="/login">
+              <Login />
             </Route>
           </Switch>
         </div>

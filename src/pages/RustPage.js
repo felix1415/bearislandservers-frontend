@@ -20,11 +20,7 @@ import bears from '../assets/image_folder/bears.png';
 import rockets from '../assets/image_folder/rockets.png';
 import rockets2 from '../assets/image_folder/rockets2.png';
 
-import kitten1 from '../assets/kitten400_1.jpg';
-import kitten2 from '../assets/kitten400_2.jpg';
-
 import rustFontImport from '../assets/Rust.woff';
-import dayzFontImport from '../assets/28-Days-Later.woff';
 
 
 const useStyles = makeStyles((theme) => ({
