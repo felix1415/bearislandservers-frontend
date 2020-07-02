@@ -169,8 +169,6 @@ class ChatWindow extends React.Component
                     </Typography>);
         }
 
-        const msgs = '[{"_id":"87fe7ebd-b6e3-4ad7-980e-c233ae924ee0","email":"agdgd1415@gmail.com","date":"2020-06-29T22:20:14.812Z","message":"bvdajh fehved gerhgwer hr jhte jte hwre whr hwert"},{"_id":"5de9ed3c-82f6-449c-9fad-695654b2d5da","email":"alexgray1415@gmail.com","date":"2020-07-01T18:35:27.812Z","message":"Inaccuraccies in a tutorial"},{"_id":"91c1c459-00e9-48ca-be50-f931f97cf0d8","email":"alexgray1415@gggggg.com","date":"2020-07-01T18:36:40.708Z","message":"Inaccuraccies in a tutorial"},{"_id":"ae6feca2-7984-462f-8667-1c5ed1d61886","email":"alexgray1415@gmail.com","date":"2020-07-01T18:37:13.968Z","message":"njgfew huewbh erfgwbhnfgwe grew grw hte hwrt hwr hwr hr wjhte"},{"_id":"5245ef81-7610-4ded-beb6-f43e73116f62","email":"alexgray1415@gmail.com","date":"2020-07-01T18:37:24.906Z","message":"Syncing wipes music - hella broken yo - njgwe gefw grw whr jht jte feqagh"},{"_id":"30c40013-7db3-495f-88a6-d038f59d6843","email":"alexgray1415@gmail.com","date":"2020-07-01T18:37:40.513Z","message":"DESTROY THE TINGS YEAH"},{"_id":"fb6c37a4-475f-4bd3-98ed-f5b960cb975b","email":"alexgray1415@gmail.com","date":"2020-07-01T18:37:50.106Z","message":"fagr gr g - last message"}]';
-
         return (
             <Box my={1}>
                 <Grid container >
@@ -181,7 +179,7 @@ class ChatWindow extends React.Component
                         <GridList cellHeight={300} cols={1}>
                             <List height={400} width={300} itemSize={46} > {/* dense={dense}*/}
                                 <Grid container >
-                                    <GenerateChat messages={msgs} element={<ListItemText/>} email={this.state.email}/>
+                                    <GenerateChat messages={this.state.messages} element={<ListItemText/>} email={this.state.email}/>
                                 </Grid>
                             </List>
                         </GridList>
