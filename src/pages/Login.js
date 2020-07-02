@@ -2,71 +2,113 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
-
+// import Snackbar from '@material-ui/core/Snackbar';
+import { Redirect } from 'react-router-dom'
 import axios from 'axios';
+
+const config = require('../config');
+
+
+
+function ShouldRedirectToAdmin(props)
+{
+	if (props.redirect) {
+		console.log("redirect to admin page");
+		return <Redirect to='/admin' />
+	}
+	return null;
+}
 
 class Login extends React.Component
 {
+
 	constructor(props)
 	{
 		super(props);
-		this.state={username:'', password:''}
+		this.state={email:'', password:'', open: false, loginMessage:'', redirect: false, isMounted: false};
+		//user input
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+
+		//snackbar bind
+		this.closeSnackbar = this.closeSnackbar.bind(this);
 	}
 
-	handleClick(event)
+	closeSnackbar (event, reason)
 	{
-		console.log("response");
-		var apiBaseUrl = "http://localhost:9000/auth/";
-		// var self = this;
-		var payload={
-			"username":this.state.username,
+    	this.setState({open: false});
+	}
+
+	handleChange (evt) {
+		this.setState({ [evt.target.name]: evt.target.value });
+	}
+
+	handleSubmit(event)
+	{
+		event.preventDefault();
+		var payload = {
+			"email":this.state.email,
 			"password":this.state.password
  		}
- 		axios.post(apiBaseUrl+'login', payload).then(function (response) 
- 		{
- 			console.log("responsefafafafa");
- 			console.log(response);
- 			if(response.data.code === 200)
- 			{
- 				console.log("Login successfull");
- 			// 	var uploadScreen=[];
-				// uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
- 			// 	self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
-	 		}
-	 		else if(response.data.code === 204)
-	 		{
-	 			console.log("Username password do not match");
-	 			alert("username password do not match")
-	 		}
-	 		else
-	 		{ 
-	 			console.log("Username does not exists");
-				alert("Username does not exist");
-			}
-		}).catch(function (error) {
-			console.log("respoerrrorororrrorornse");
-			console.log(error);
-		});
+ 		axios
+	    .post(config.apiServer + config.serverPort + '/auth/login ', payload, {withCredentials: true})
+	    .then(response =>
+    	  	{
+	    	  	if(response.status === 200)
+	    	  	{
+ 					console.log("Login successful " + response.status); 
+ 					this.setState({loginMessage: 'Login successful.'});
+ 					this.setState({open: true});
+
+ 					this.props.setLoggedInCallback(true);
+ 					return true;
+ 				}
+		  	})
+	    .catch(err => 
+	    	{
+		    	this.setState({loginMessage: "Login failed."});
+		    	this.setState({open: true});
+	      		console.error("login failed: " + err);
+	    	}); 		
 	}
 
 	render()
 	{
+		if(this.props.loggedIn)
+		{
+			return <ShouldRedirectToAdmin redirect={this.props.loggedIn}/>
+		}
 		return (
 			<Box my={4}>
-				<TextField
-	             hintText="Enter your Username"
-	             floatingLabelText="Username"
-	             onChange = {(event,newValue) => this.setState({username:newValue})}
-	             />
-	           	<br/>                
-	           	<TextField
-	               type="password"
-	               hintText="Enter your Password"
-	               floatingLabelText="Password"
-	               onChange = {(event,newValue) => this.setState({password:newValue})}
-	               />
+					<form onSubmit={this.handleSubmit}>
+						<TextField
+							autoFocus={true}
+							name="email"
+							label="Email"
+			            	onChange={this.handleChange}
+			             />
+			           	<br/>                
+			           	<TextField
+			           		name="password"
+			           		label="Password"
+			           		type="password"
+			            	onChange={this.handleChange}
+			               />
+			             <br/>
+			             <Button type="submit" variant="contained" label="Submit" primary="true ">Submit</Button>
+{/*			             
+						<Snackbar
+			              autoHideDuration={5000}
+						  open={this.state.open}
+						  onClose={this.closeSnackbar}
+						  message={this.state.loginMessage}
+						/>
+*/}
+					</form>
+
 	             <br/>
-	             <Button variant="contained" label="Submit" primary={true} onClick={(event) => this.handleClick(event)}>Submit </Button>
+	             <br/>
+
 		    </Box>
 		);
 	}

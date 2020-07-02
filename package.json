@@ -2,6 +2,7 @@
   "name": "create-react-app",
   "version": "4.0.0",
   "private": true,
+  "proxy": "http://localhost:9000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -19,7 +20,8 @@
     "react-dom": "latest",
     "react-iframe": "^1.8.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "react-window": "^1.8.5"
   },
   "browserslist": {
     "production": [
