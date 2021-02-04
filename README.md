@@ -1,3 +1,5 @@
+This is early code from the private bearislands.com website.
+
 # Create React App example
 
 ## How to use
